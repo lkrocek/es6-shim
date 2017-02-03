@@ -122,7 +122,7 @@
     },
     redefine: function (object, property, newValue) {
       if (supportsDescriptors) {
-        var descriptor = Object.getOwnPropertyDescriptor(object, property);
+        var descriptor = Object.getOwnPropertyDescriptor(object, property) || {};
         descriptor.value = newValue;
         Object.defineProperty(object, property, descriptor);
       } else {
